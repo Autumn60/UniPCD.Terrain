@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.autumn60.unipcd": {
+      "version": "https://github.com/Autumn60/UniPCD.git?path=/Assets/UniPCD#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "e62236c918cfcfeca387e7be1f07337f0f204ff3"
+    },
     "com.unity.burst": {
       "version": "1.8.18",
       "depth": 1,
