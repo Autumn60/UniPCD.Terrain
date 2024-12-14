@@ -1,0 +1,16 @@
+{
+    "name": "com.autumn60.unipcd.terrain.editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:c4f73065c1d2d3d17992d2edcb4e38c5"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

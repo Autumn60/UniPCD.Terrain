@@ -1,0 +1,12 @@
+{
+    "name": "com.autumn60.unipcd.terrain",
+    "version": "0.1.0",
+    "displayName": "UniPCD.Terrain",
+    "description": "",
+    "unity": "2022.3",
+    "dependencies": {
+      "com.autumn60.unipcd": "0.1.0"
+    },
+    "keywords": [
+    ]
+}
