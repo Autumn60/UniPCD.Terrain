@@ -2,7 +2,9 @@
     "name": "com.autumn60.unipcd.terrain.runtime",
     "rootNamespace": "",
     "references": [
-        "GUID:504c7f3d7db29372ebb8d44f9b228a72"
+        "GUID:504c7f3d7db29372ebb8d44f9b228a72",
+        "GUID:d8b63aba1907145bea998dd612889d6b",
+        "GUID:a2169ca35ace41b4086428c01affc7ba"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

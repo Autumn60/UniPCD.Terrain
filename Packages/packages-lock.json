@@ -5,7 +5,16 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "e62236c918cfcfeca387e7be1f07337f0f204ff3"
+      "hash": "4202bcb92fe3c19af1b7a0c519f18b4116ce01c8"
+    },
+    "com.autumn60.unipcd.octree": {
+      "version": "https://github.com/Autumn60/UniPCD.Octree.git?path=/Assets/UniPCD.Octree#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.autumn60.unipcd": "0.1.0"
+      },
+      "hash": "f8010c83db984ec377c779da89ff25ffb2ed8ccf"
     },
     "com.unity.burst": {
       "version": "1.8.18",

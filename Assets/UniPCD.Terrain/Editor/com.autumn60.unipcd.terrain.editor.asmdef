@@ -2,7 +2,8 @@
     "name": "com.autumn60.unipcd.terrain.editor",
     "rootNamespace": "",
     "references": [
-        "GUID:c4f73065c1d2d3d17992d2edcb4e38c5"
+        "GUID:c4f73065c1d2d3d17992d2edcb4e38c5",
+        "GUID:504c7f3d7db29372ebb8d44f9b228a72"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
