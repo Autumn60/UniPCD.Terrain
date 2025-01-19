@@ -2,7 +2,7 @@
 
 ## Installation
 
-1. Install the dependencies. -> [Autumn60/UniPCD](https://github.com/Autumn60/UniPCD)
+1. Install the dependencies. -> [Autumn60/UniPCD](https://github.com/Autumn60/UniPCD) and [Autumn60/UniPCD.Octree](https://github.com/Autumn60/UniPCD.Octree)
 2. Open the Package Manager from `Window` -> `Package Manager`.
 3. In the Package Manager window, find and click the + button in the upper lefthand corner of the window. Select `Add package from git URL....`
 
