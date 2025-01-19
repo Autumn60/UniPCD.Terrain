@@ -8,8 +8,9 @@ namespace UniPCD.Terrain
 
   public static class PCD2Terrain
   {
-    public static bool GenerateTerrain(PCD pcd, int heightmapResolution, string terrainName = "New Terrain")
+    public static bool GenerateTerrain(PCD pcd, int heightmapResolution, float[] querySizeMagnifications, string terrainName = "New Terrain")
     {
+      if (pcd.header.points == 0) return false;
       Octree octree;
       Vector3 mapOrigin;
       Vector3 mapSize;
@@ -29,32 +30,35 @@ namespace UniPCD.Terrain
 
       float[,] heights = new float[heightmapResolution, heightmapResolution];
       Vector2 cellSize = mapSize / heightmapResolution;
-      Bounds cellBounds = new Bounds
-      {
-        center = Vector3.zero,
-        size = new Vector3(cellSize.x, cellSize.y, float.MaxValue)
-      };
       Vector3 cellOffset = new Vector3
       {
         x = cellSize.x / 2 + mapOrigin.x,
         y = -cellSize.y / 2 + mapOrigin.y + mapSize.y,
         z = 0.0f
       };
-
       for (int z = 0; z < heightmapResolution; z++)
       {
         for (int x = 0; x < heightmapResolution; x++)
         {
-          cellBounds.center = new Vector3(z * cellSize.x, -x * cellSize.y, 0) + cellOffset;
-          List<int> indices = octree.Query(cellBounds);
-          float minHeight = float.MaxValue;
-          foreach (int index in indices)
+          Vector3 cellCenter = new Vector3(z * cellSize.x, -x * cellSize.y, 0) + cellOffset;
+          float height = 0.0f;
+          foreach (float querySizeMagnification in querySizeMagnifications)
           {
-            float height = pcd.pointCloud.points[index].position.z - mapOrigin.z;
-            if (height < minHeight) minHeight = height;
+            Bounds cellBounds = new Bounds(
+              cellCenter,
+              new Vector3(cellSize.x * querySizeMagnification, cellSize.y * querySizeMagnification, float.MaxValue)
+            );
+            List<int> indices = octree.Query(cellBounds);
+            if (indices.Count == 0) continue;
+            height = float.MaxValue;
+            foreach (int index in indices)
+            {
+              float h = pcd.pointCloud.points[index].position.z - mapOrigin.z;
+              if (h < height) height = h;
+            }
+            break;
           }
-          if (minHeight == float.MaxValue) minHeight = 0.0f;
-          heights[z, x] = minHeight / mapSize.z;
+          heights[z, x] = height / mapSize.z;
         }
       }
       terrainData.SetHeights(0, 0, heights);
@@ -62,7 +66,7 @@ namespace UniPCD.Terrain
       string terrainDataPath = $"Assets/{terrainName}.asset";
       AssetDatabase.CreateAsset(terrainData, terrainDataPath);
       AssetDatabase.SaveAssets();
-      return false;
+      return true;
     }
   }
 }
